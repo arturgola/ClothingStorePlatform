@@ -3,10 +3,10 @@
 link to the word document - https://docs.google.com/document/d/164TxzpZeSRGW6brS9OTtRhy4W7e-neFBgKUeDQ4lGaQ/edit?usp=sharing
 
 Owned by:
-Dung Pham 
-Kiran Pokharel
-Artur Golavskiy
-Elias Pehkonen 
+Dung Pham,
+Kiran Pokharel,
+Artur Golavskiy,
+Elias Pehkonen.
 
     Target Users and Stakeholders: 
 
