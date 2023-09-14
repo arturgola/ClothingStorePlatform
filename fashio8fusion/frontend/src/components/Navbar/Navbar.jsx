@@ -14,7 +14,7 @@ export const Navbar = () => {
             <li>Question</li>
             <li>Profile</li>
             <li>Liked</li>
-            <li>Cart</li>
+            <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart}/>
         </ul>
     </div>
   )
