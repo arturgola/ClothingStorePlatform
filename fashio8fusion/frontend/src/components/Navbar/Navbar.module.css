@@ -1,0 +1,25 @@
+.base {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 21px 0;
+    background-color: #79101A;
+    height: 115px;
+    max-height: 115px;
+    font-size: 14;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 17px;
+    color: white;
+}
+
+.logo{
+    padding-right: 9px;
+    height: 42px;
+    width: 92px;
+}
