@@ -1,0 +1,16 @@
+.search_bar {
+  display: flex;
+  justify-items: start;
+  align-items: center;
+  padding: 0 17px;
+  width: 223px;
+  height: 34px;
+  border-radius: 20px;
+  background: #a45151;
+}
+
+.search_logo {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}

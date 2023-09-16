@@ -1,22 +1,34 @@
 import styles from "./Navbar.module.css";
+import { SearchBar } from "../SearchBar/SearchBar";
 
 export const Navbar = () => {
   return (
     <div className={styles.base}>
-        <ul className={styles.menu}>
-            <img src="/assets/logo.svg" alt="logo" className={styles.logo}/>
-            <li>Women</li>
-            <li>Men</li>
-            <li>Sale</li>
-            <li>Search</li>
-        </ul>
-        <ul className={styles.menu}>
-            <li>Question</li>
-            <li>Profile</li>
-            <li>Liked</li>
-            <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart}/>
-        </ul>
+      <ul className={styles.menu}>
+        <img src="/assets/logo.svg" alt="logo" className={styles.logo} />
+        <li>Women</li>
+        <li>Men</li>
+        <li>Sale</li>
+        <SearchBar />
+      </ul>
+      <ul className={styles.menu}>
+        <img
+          src="/assets/question_logo.svg"
+          alt="question"
+          className={styles.question}
+        />
+        <img
+          src="/assets/profile_logo.svg"
+          alt="profile"
+          className={styles.profile}
+        />
+        <img
+          src="/assets/liked_logo.svg"
+          alt="liked"
+          className={styles.liked}
+        />
+        <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart} />
+      </ul>
     </div>
-  )
-
-}
+  );
+};
