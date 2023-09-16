@@ -3,10 +3,126 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100%;
-  background-color: #282c34;
+  height: 100%;
+  width: calc(100% - 42px);
   color: white;
   font-size: calc(10px + 2vmin);
   text-align: center;
+  padding: 21px;
+}
+
+.promo_container1_wrapper {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background-color: gray;
+}
+
+.promo_container1_wrapper:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background-image: url("/assets/promo_container1.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.promo_container1_content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  align-items: center;
+}
+
+.promo_container1_content_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  padding: 0 21px;
+}
+
+.promo_container1_content_right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  padding: 0 21px;
+  position: relative;
+}
+
+.promo_container2 {
+  background-image: url("/assets/promo_container2.png");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+  width: 100%;
+  margin-top: 21px;
+}
+
+.promo1 {
+  position: absolute;
+  height: calc(100% - 200px);
+  width: auto;
+  aspect-ratio: 416/623;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.promo1_2 {
+  position: absolute;
+  height: calc(100% - 150px);
+  width: auto;
+  aspect-ratio: 480/709;
+  top: 50%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.promo1_text_container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: #000;
+  font-size: 86px;
+  font-weight: 600;
+  line-height: 96px;
+  text-transform: uppercase;
+}
+
+.text_transparent_border {
+  color: transparent;
+  -webkit-text-stroke: 2px #000;
+}
+
+.promo1_button_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 48px;
+  width: 175px;
+  justify-content: center;
+  border: solid 2px #000;
+}
+
+.promo1_button_container>* {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-size: 18px;
 }
