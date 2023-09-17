@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import ProductList from './ProductList';
+
 import { REACT_APP_API_URL } from '../../utils/apiConfig';
 
 const apiUrl = `${REACT_APP_API_URL}/api/women`;
@@ -35,10 +37,7 @@ const Women = () => {
     <div className="women">
       {error && <div>{error}</div>}
       {isPending && <div>Loading resources...</div>}
-      {products &&
-        products.map((product) => (
-          <img src={REACT_APP_API_URL + product.image} alt={product.name} />
-        ))}
+      {products && <ProductList products={products} />}
     </div>
   );
 };

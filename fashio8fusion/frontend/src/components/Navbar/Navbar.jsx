@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 export const Navbar = () => {
   return (
@@ -17,19 +18,29 @@ export const Navbar = () => {
         <Link to="#" className={styles.link}>
           Sale
         </Link>
-        <Link to="#" className={styles.link}>
-          Search
-        </Link>
+        <SearchBar />
       </div>
       <div className={styles.menu} id="user-panel">
         <Link to="#" className={styles.link}>
-          Question
+          <img
+            src="/assets/question_logo.svg"
+            alt="question"
+            className={styles.question}
+          />
         </Link>
         <Link to="#" className={styles.link}>
-          Profile
+          <img
+            src="/assets/liked_logo.svg"
+            alt="liked"
+            className={styles.liked}
+          />
         </Link>
         <Link to="#" className={styles.link}>
-          Liked
+          <img
+            src="/assets/profile_logo.svg"
+            alt="profile"
+            className={styles.profile}
+          />
         </Link>
         <Link to="#" className={styles.link}>
           <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart} />

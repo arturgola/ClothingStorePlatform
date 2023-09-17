@@ -1,0 +1,24 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  padding: 0 21px;
+  background-color: #79101a;
+  color: white;
+  height: 80x;
+  max-height: 100px;
+  font-size: 18;
+  font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  list-style: none;
+  gap: 52px;
+  color: white;
+  padding: 0;
+  margin: 1rem 0 0;
+}
