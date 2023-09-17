@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { Home } from './pages/Home/Home';
-import { useState } from 'react';
+import Women from './pages/Category/Women';
 import { Navbar } from './components/Navbar/Navbar';
 
 const App = () => {
