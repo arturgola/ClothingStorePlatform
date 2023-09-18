@@ -1,5 +1,6 @@
 import styles from "./Navbar.module.css";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { DropdownProfile } from "../DropdownProfile/DropdownProfile";
 
 export const Navbar = () => {
   return (
@@ -17,11 +18,12 @@ export const Navbar = () => {
           alt="question"
           className={styles.question}
         />
-        <img
+        {/* <img
           src="/assets/profile_logo.svg"
           alt="profile"
           className={styles.profile}
-        />
+        /> */}
+        <DropdownProfile />
         <img
           src="/assets/liked_logo.svg"
           alt="liked"
