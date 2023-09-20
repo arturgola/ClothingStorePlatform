@@ -15,7 +15,7 @@ export const Home = () => {
               </p>
               <p>On all dress.</p>
               <div className={styles.promo1_button_container}>
-                <Link to="/women">Shop Now</Link>
+                <Link to="/sale">Shop Now</Link>
               </div>
             </div>
           </div>

@@ -7,6 +7,7 @@
   height: 80px;
   max-height: 80px;
   font-size: 18px;
+  font-family: Oswald, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .menu {
@@ -14,9 +15,13 @@
   align-items: center;
   justify-content: center;
   list-style: none;
-  gap: 52px;
+  gap: 20px;
   color: white;
   padding: 0;
+}
+
+#user-panel {
+  align-items: baseline;
 }
 
 .logo {
@@ -27,17 +32,22 @@
 
 .cart_logo {
   height: 28px;
-  width: 25px;
+  width: 28px;
 }
 
 .liked_logo {
   height: 28px;
-  width: 25px;
+  width: 28px;
 }
 
 .profile_logo {
   height: 28px;
-  width: 25px;
+  width: 28px;
+}
+
+.question_logo {
+  height: 28px;
+  width: 28px;
 }
 
 .link {
