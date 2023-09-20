@@ -1,5 +1,5 @@
-import styles from "./Footer.module.css";
-import { SearchBar } from "../SearchBar/SearchBar";
+import styles from './Footer.module.css';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 export const Footer = () => {
   return (
@@ -10,7 +10,7 @@ export const Footer = () => {
         <li>TERMS & CONDITIONS</li>
         <li>FOLLOW US</li>
       </ul>
-      <p style={{ fontSize: "12px" }}>© GROUP8, 2023.</p>
+      <p style={{ fontSize: '10px' }}>© GROUP8, 2023.</p>
     </div>
   );
 };

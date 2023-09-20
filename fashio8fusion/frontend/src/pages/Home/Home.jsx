@@ -1,5 +1,5 @@
-import styles from "./Home.module.css";
-import { Link } from "react-router-dom";
+import styles from './Home.module.css';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   return (
@@ -9,14 +9,27 @@ export const Home = () => {
           <div className={styles.promo_container1_content_left}>
             <div className={styles.promo1_text_container}>
               <p>SUMMER SALE</p>
-              <p>GEt <span className={styles.text_transparent_border}>30% OFF</span></p>
+              <p>
+                GET{' '}
+                <span className={styles.text_transparent_border}>30% OFF</span>
+              </p>
               <p>On all dress.</p>
-              <div className={styles.promo1_button_container}><Link to="/products" >Shop Now</Link></div>
+              <div className={styles.promo1_button_container}>
+                <Link to="/sale">Shop Now</Link>
+              </div>
             </div>
           </div>
           <div className={styles.promo_container1_content_right}>
-            <img src="/assets/promo1.png" alt="promo" className={styles.promo1} />
-            <img src="/assets/promo1_2.png" alt="promo" className={styles.promo1_2} />
+            <img
+              src="/assets/promo1.png"
+              alt="promo"
+              className={styles.promo1}
+            />
+            <img
+              src="/assets/promo1_2.png"
+              alt="promo"
+              className={styles.promo1_2}
+            />
           </div>
         </div>
       </div>
