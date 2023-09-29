@@ -1,6 +1,7 @@
 const Product = require('../models/product-model');
 const mongoose = require('mongoose');
 
+
 // create a new product
 const createProduct = async (req, res, next) => {
   try {
