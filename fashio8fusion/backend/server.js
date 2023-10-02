@@ -5,6 +5,8 @@ const connectDB = require('./config/db');
 const productRoutes = require('./routes/product-router');
 const customMiddleware = require('./middleware/customMiddleware');
 
+
+
 const port = process.env.PORT || 5001;
 
 connectDB();
@@ -19,6 +21,7 @@ app.use(customMiddleware.reqLogger);
 app.use('/api', productRoutes);
 
 app.use('/images', express.static('images'));
+app.use("/api/users", require("./routes/userRoutes"));
 
 app.use(customMiddleware.unknownEndpoint);
 
