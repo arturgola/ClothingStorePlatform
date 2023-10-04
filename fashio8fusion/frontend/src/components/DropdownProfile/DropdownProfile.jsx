@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "./DropdownProfile.module.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 export const DropdownProfile = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +14,7 @@ export const DropdownProfile = () => {
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { email, password } = formData;
@@ -32,12 +31,10 @@ export const DropdownProfile = () => {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      axios.post("login", formData);
-      // Form is valid; you can submit it or perform other actions here
-      // For demonstration purposes, let's log the form data to the console
-      console.log("Form data submitted:", formData);
+      const res = await login(formData.email, formData.password);
+      console.log("Form data submitted:", res);
     } else {
-      // Update the state with validation errors
+
       setErrors(newErrors);
     }
   };
