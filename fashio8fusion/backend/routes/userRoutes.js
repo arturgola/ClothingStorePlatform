@@ -10,6 +10,9 @@ const {
 } = require("../controllers/userController");
 const { protect } = require("../middleware/authMiddleware");
 
+router.get("/", (req, res) => {
+  res.send("Hello, Express!");
+});
 // Register a new user
 router.post("/register", registerUser);
 
@@ -20,9 +23,9 @@ router.post("/login", loginUser);
 router.get("/getMe", protect, getMe);
 
 //Update User
-router.put("/updateUser",protect,updateUser);
+router.put("/updateUser", protect, updateUser);
 
 //Delete USer
-router.delete("/delete",protect, deleteUser)
+router.delete("/delete", protect, deleteUser);
 
 module.exports = router;

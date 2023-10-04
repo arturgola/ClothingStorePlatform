@@ -20,6 +20,8 @@ const getUserId = (req) => {
 
 // @desc Register a new user : @route POST /api/users/register : @access  Public
 const registerUser = async (req, res, next) => {
+  console.log(req.body);
+
   const { name, email, password } = req.body;
   if (!email || !password || !name) {
     return res
