@@ -46,7 +46,7 @@ export const Navbar = () => {
           />
         </Link> */}
         <DropdownProfile />
-        
+
         {/* <Link to="#" className={styles.link}>
           <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart} />
         </Link> */}
