@@ -70,7 +70,7 @@ export const DropdownProfile = () => {
               SIGN UP
             </Link>
             <button type="button" onClick={handleSubmit}>
-              Login
+              <Link to="/login">Login</Link>
             </button>
           </div>
         </div>
