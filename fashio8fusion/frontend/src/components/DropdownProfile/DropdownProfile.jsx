@@ -34,7 +34,6 @@ export const DropdownProfile = () => {
       const res = await login(formData.email, formData.password);
       console.log("Form data submitted:", res);
     } else {
-
       setErrors(newErrors);
     }
   };
@@ -66,11 +65,14 @@ export const DropdownProfile = () => {
             />
           </div>
           <div className={styles.buttons_container}>
-            <Link className={styles.signup_btn} to="/signup">
+            <Link className={styles["signup_btn"]} to="/signup">
               SIGN UP
             </Link>
+
             <button type="button" onClick={handleSubmit}>
-              <Link to="/login">Login</Link>
+              <Link className={styles["login_btn"]} to="/login">
+                Login
+              </Link>
             </button>
           </div>
         </div>

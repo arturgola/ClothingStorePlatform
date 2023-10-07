@@ -47,13 +47,11 @@ function Login() {
     }
   };
 
-
-
   return (
     <LoginAfterMessage>
       <div className={styles["login-page"]}>
         <h2>Login</h2>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles["form"]} onSubmit={handleSubmit}>
           <div>
             <label>Email:</label>
             <input
@@ -72,7 +70,9 @@ function Login() {
               value={formData.password}
               onChange={handleChange}
             />
-            {errors.password && <span className="error">{errors.password}</span>}
+            {errors.password && (
+              <span className="error">{errors.password}</span>
+            )}
           </div>
 
           <button type="submit">Login</button>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { register } from "../../services/authService";
+import styles from "./Signup.module.css";
 
 function SignUp() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -46,10 +47,15 @@ function SignUp() {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      const res = await register(formData.name, formData.email, formData.password,
-        formData.confirmPassword); {
+      const res = await register(
+        formData.name,
+        formData.email,
+        formData.password,
+        formData.confirmPassword
+      );
+      {
         setShowSuccessMessage(true);
-      };
+      }
       console.log("Form data submitted:", formData);
     } else {
       setErrors(newErrors);
@@ -57,12 +63,13 @@ function SignUp() {
   };
 
   return (
-    <div>
+    <div className={styles["signup-page"]}>
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
+      <form classname={styles["form"]} onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
           <input
+            className={styles["form-input"]}
             type="text"
             name="name"
             value={formData.name}
@@ -73,6 +80,7 @@ function SignUp() {
         <div>
           <label>Email:</label>
           <input
+            className={styles["form-input"]}
             type="email"
             name="email"
             value={formData.email}
@@ -83,6 +91,7 @@ function SignUp() {
         <div>
           <label>Password:</label>
           <input
+            className={styles["form-input"]}
             type="password"
             name="password"
             value={formData.password}
@@ -93,6 +102,7 @@ function SignUp() {
         <div>
           <label>Confirm Password:</label>
           <input
+            className={styles["form-input"]}
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
@@ -102,7 +112,9 @@ function SignUp() {
             <span className="error">{errors.confirmPassword}</span>
           )}
         </div>
-        <button type="submit">Sign Up</button>
+        <button className={styles["form-button"]} type="submit">
+          Sign Up
+        </button>
         {showSuccessMessage && (
           <p>
             Congrats you have signed Up, <Link to="/login">LOGIN</Link> to Login
