@@ -30,10 +30,16 @@
     justify-content: center;
 }
 
-.product {
-    width: 366px;
-    height: 584px;
+.product_picture {
+    height: 480px;
+}
 
+.product {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 125px;
+    justify-content: center;
+    align-items: center;
 }
 
 .product_header_category {

@@ -1,9 +1,12 @@
-import axios from "axios";
 import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
+import { login } from "../../services/authService";
+import LoginAfterMessage from "../../components/LoginAfterMessage/LoginAfterMessage";
+import { useAuth } from "../../hooks/AuthContext";
 
 function Login() {
+  const { setUser } = useAuth();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -19,7 +22,7 @@ function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { email, password } = formData;
@@ -36,50 +39,52 @@ function Login() {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      axios.post("login", formData);
-      // Form is valid; you can submit it or perform other actions here
-      // For demonstration purposes, let's log the form data to the console
-      console.log("Form data submitted:", formData);
+      const res = await login(formData.email, formData.password);
+      console.log("Form data submitted:", res);
+      setUser(res.user);
     } else {
-      // Update the state with validation errors
       setErrors(newErrors);
     }
   };
 
-  return (
-    <div className={styles["login-page"]}>
-      <h2>Login</h2>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <span className="error">{errors.email}</span>}
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          {errors.password && <span className="error">{errors.password}</span>}
-        </div>
 
-        <button type="submit">Login</button>
-        <p class="message">
-          Not registered?{" "}
-          <Link className={styles.signup_btn} to="/signup">
-            SIGN UP
-          </Link>
-        </p>
-      </form>
-    </div>
+
+  return (
+    <LoginAfterMessage>
+      <div className={styles["login-page"]}>
+        <h2>Login</h2>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <div>
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
+          <div>
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            {errors.password && <span className="error">{errors.password}</span>}
+          </div>
+
+          <button type="submit">Login</button>
+          <p class="message">
+            Not registered?{" "}
+            <Link className={styles.signup_btn} to="/signup">
+              SIGN UP
+            </Link>
+          </p>
+        </form>
+      </div>
+    </LoginAfterMessage>
   );
 }
 

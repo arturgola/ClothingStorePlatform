@@ -1,0 +1,32 @@
+.quantity_counter_container {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    border: solid 1px gray;
+    max-width: 143px;
+    height: 51px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    color: gray;
+}
+
+.quantity_counter_container>p {
+    font-family: Oswald;
+    font-size: 18px;
+    color: black;
+}
+
+
+.unstyle_button {
+    display: flex;
+    border: none;
+    background: none;
+    padding: 0 8px;
+    color: gray;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0px;
+}

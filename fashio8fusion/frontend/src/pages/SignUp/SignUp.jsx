@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { register } from "../../services/authService";
 
 function SignUp() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -21,7 +21,7 @@ function SignUp() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { name, email, password, confirmPassword } = formData;
@@ -46,14 +46,12 @@ function SignUp() {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      axios.post("register", formData).then(() => {
+      const res = await register(formData.name, formData.email, formData.password,
+        formData.confirmPassword); {
         setShowSuccessMessage(true);
-      });
-      // Form is valid; you can submit it or perform other actions here
-      // For demonstration purposes, let's log the form data to the console
+      };
       console.log("Form data submitted:", formData);
     } else {
-      // Update the state with validation errors
       setErrors(newErrors);
     }
   };
