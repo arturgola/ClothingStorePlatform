@@ -5,9 +5,10 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 import SignUp from "./pages/SignUp/SignUp";
 import Login from "./pages/Login/Login";
-import { AuthProvider } from './hooks/AuthContext';
+import { AuthProvider } from "./hooks/AuthContext";
 // import { Women } from './pages/ProductPageWo/ProductPageWo';
-import { ProductPage } from './pages/ProductPage/ProductPage';
+import { ProductPage } from "./pages/ProductPage/ProductPage";
+import AboutUs from "./pages/Aboutus";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
               <Route path="/productpage" element={<ProductPage />} />
+              <Route path="/Aboutus" element={<AboutUs />} />
             </Routes>
           </div>
           <Footer />
