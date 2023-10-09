@@ -10,8 +10,9 @@ import Login from './pages/Login/Login';
 import { AuthProvider } from './hooks/AuthContext';
 // import { Women } from './pages/ProductPageWo/ProductPageWo';
 import { ProductPage } from "./pages/ProductPage/ProductPage";
-import AboutUs from "./pages/Aboutus";
+import AboutUs from "./pages/AboutUs/Aboutus";
 import ContactUs from "./pages/Contactus/ContactUS";
+import { ShoppingBag } from './pages/ShoppingBag/ShoppingBag';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
               <Route path="/Aboutus" element={<AboutUs />} />
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/product/:id" element={<ProductScreen />} />
+              <Route path="/shoppingbag" element={<ShoppingBag />} />
             </Routes>
           </div>
           <Footer />

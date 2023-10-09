@@ -93,4 +93,7 @@
   height: 45px;
   padding: unset;
   margin: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
