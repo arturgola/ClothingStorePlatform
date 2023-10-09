@@ -65,7 +65,7 @@ function SignUp() {
   return (
     <div className={styles["signup-page"]}>
       <h2>Sign Up</h2>
-      <form classname={styles["form"]} onSubmit={handleSubmit}>
+      <form className={styles["form"]} onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
           <input

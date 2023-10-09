@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import Women from './pages/ProductListWomen/Women';
@@ -8,7 +9,9 @@ import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
 import { AuthProvider } from './hooks/AuthContext';
 // import { Women } from './pages/ProductPageWo/ProductPageWo';
-import { ProductPage } from './pages/ProductPage/ProductPage';
+import { ProductPage } from "./pages/ProductPage/ProductPage";
+import AboutUs from "./pages/Aboutus";
+import ContactUs from "./pages/Contactus/ContactUS";
 
 const App = () => {
   return (
@@ -23,6 +26,8 @@ const App = () => {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
               <Route path="/productpage" element={<ProductPage />} />
+              <Route path="/Aboutus" element={<AboutUs />} />
+              <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/product/:id" element={<ProductScreen />} />
             </Routes>
           </div>

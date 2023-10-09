@@ -6,7 +6,7 @@ import LoginAfterMessage from "../../components/LoginAfterMessage/LoginAfterMess
 import { useAuth } from "../../hooks/AuthContext";
 
 function Login() {
-  const { setUser } = useAuth();
+  const { setUser, loginUser } = useAuth();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -39,7 +39,7 @@ function Login() {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      const res = await login(formData.email, formData.password);
+      const res = await loginUser(formData.email, formData.password);
       console.log("Form data submitted:", res);
       setUser(res.user);
     } else {
@@ -76,7 +76,7 @@ function Login() {
           </div>
 
           <button type="submit">Login</button>
-          <p class="message">
+          <p className="message">
             Not registered?{" "}
             <Link className={styles.signup_btn} to="/signup">
               SIGN UP

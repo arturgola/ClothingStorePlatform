@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
-import styles from './Navbar.module.css';
-import { SearchBar } from '../SearchBar/SearchBar';
-import { DropdownProfile } from '../DropdownProfile/DropdownProfile';
-import { DropdownShoppingBag } from '../DropdownShoppingBag/DropdownShoppingBag';
-
+import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css";
+import { SearchBar } from "../SearchBar/SearchBar";
+import { DropdownProfile } from "../DropdownProfile/DropdownProfile";
+import { DropdownShoppingBag } from "../DropdownShoppingBag/DropdownShoppingBag";
 
 export const Navbar = () => {
   return (
@@ -23,8 +22,8 @@ export const Navbar = () => {
         </Link>
         <SearchBar />
       </div>
-      <div className={styles.menu} id={styles['user-panel']}>
-        <Link to="/support" className={styles.link}>
+      <div className={styles.menu} id={styles["user-panel"]}>
+        <Link to="/ContactUs" className={styles.link}>
           <img
             src="/assets/question_logo.svg"
             alt="question"
