@@ -1,11 +1,13 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home/Home";
-import Women from "./pages/ProductListWomen/Women";
-import { Navbar } from "./components/Navbar/Navbar";
-import { Footer } from "./components/Footer/Footer";
-import SignUp from "./pages/SignUp/SignUp";
-import Login from "./pages/Login/Login";
-import { AuthProvider } from "./hooks/AuthContext";
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home } from './pages/Home/Home';
+import Women from './pages/ProductListWomen/Women';
+import ProductScreen from './pages/ProductPage/ProductScreen';
+import { Navbar } from './components/Navbar/Navbar';
+import { Footer } from './components/Footer/Footer';
+import SignUp from './pages/SignUp/SignUp';
+import Login from './pages/Login/Login';
+import { AuthProvider } from './hooks/AuthContext';
 // import { Women } from './pages/ProductPageWo/ProductPageWo';
 import { ProductPage } from "./pages/ProductPage/ProductPage";
 import AboutUs from "./pages/Aboutus";
@@ -26,6 +28,7 @@ const App = () => {
               <Route path="/productpage" element={<ProductPage />} />
               <Route path="/Aboutus" element={<AboutUs />} />
               <Route path="/ContactUs" element={<ContactUs />} />
+              <Route path="/product/:id" element={<ProductScreen />} />
             </Routes>
           </div>
           <Footer />
