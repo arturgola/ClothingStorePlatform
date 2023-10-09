@@ -6,40 +6,40 @@ import { REACT_APP_API_URL } from '../../utils/apiConfig';
 const apiUrl = `${REACT_APP_API_URL}/api/women`;
 
 const Women = () => {
-    const [products, setProducts] = useState(null);
-    const [isPending, setIsPending] = useState(true);
-    const [error, setError] = useState(null);
+  const [products, setProducts] = useState(null);
+  const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const res = await fetch(apiUrl);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch(apiUrl);
 
-                if (!res.ok) {
-                    throw Error('Could not fetch data for that resource');
-                }
+        if (!res.ok) {
+          throw Error('Could not fetch data for that resource');
+        }
 
-                const data = await res.json();
+        const data = await res.json();
 
-                setIsPending(false);
-                setProducts(data);
-                setError(null);
-            } catch (err) {
-                setIsPending(false);
-                setError(err.message);
-            }
-        };
+        setIsPending(false);
+        setProducts(data);
+        setError(null);
+      } catch (err) {
+        setIsPending(false);
+        setError(err.message);
+      }
+    };
 
-        fetchProduct();
-    }, []);
+    fetchProducts();
+  }, []);
 
-    return (
-        <div className="women">
-            {error && <div>{error}</div>}
-            {isPending && <div>Loading resources...</div>}
-            {products && <ProductListWomen products={products} />}
-        </div>
-    );
+  return (
+    <div className="women">
+      {error && <div>{error}</div>}
+      {isPending && <div>Loading resources...</div>}
+      {products && <ProductListWomen products={products} />}
+    </div>
+  );
 };
 
 export default Women;
