@@ -9,6 +9,7 @@ import { AuthProvider } from "./hooks/AuthContext";
 // import { Women } from './pages/ProductPageWo/ProductPageWo';
 import { ProductPage } from "./pages/ProductPage/ProductPage";
 import AboutUs from "./pages/Aboutus";
+import ContactUs from "./pages/Contactus/ContactUS";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/productpage" element={<ProductPage />} />
               <Route path="/Aboutus" element={<AboutUs />} />
+              <Route path="/ContactUs" element={<ContactUs />} />
             </Routes>
           </div>
           <Footer />
