@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
-import styles from "./Navbar.module.css";
-import { SearchBar } from "../SearchBar/SearchBar";
-import { DropdownProfile } from "../DropdownProfile/DropdownProfile";
-import { DropdownShoppingBag } from "../DropdownShoppingBag/DropdownShoppingBag";
+import { Link } from 'react-router-dom';
+import styles from './Navbar.module.css';
+import { SearchBar } from '../SearchBar/SearchBar';
+import { DropdownProfile } from '../DropdownProfile/DropdownProfile';
+import { DropdownShoppingBag } from '../DropdownShoppingBag/DropdownShoppingBag';
+import { useContext } from 'react';
+import { Store } from '../../hooks/StoreContext';
 
 export const Navbar = () => {
+  const { state } = useContext(Store);
+  const { cart } = state;
   return (
     <div className={styles.base}>
       <div className={styles.menu} id="category">
@@ -22,7 +26,7 @@ export const Navbar = () => {
         </Link>
         <SearchBar />
       </div>
-      <div className={styles.menu} id={styles["user-panel"]}>
+      <div className={styles.menu} id={styles['user-panel']}>
         <Link to="/ContactUs" className={styles.link}>
           <img
             src="/assets/question_logo.svg"
@@ -46,10 +50,13 @@ export const Navbar = () => {
         </Link> */}
         <DropdownProfile />
 
-        {/* <Link to="#" className={styles.link}>
+        <Link to="/cart" className={styles.link}>
           <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart} />
-        </Link> */}
-        <DropdownShoppingBag />
+        </Link>
+        {/* <DropdownShoppingBag /> */}
+        {cart.cartItems.length > 0 && (
+          <div>{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</div>
+        )}
       </div>
     </div>
   );

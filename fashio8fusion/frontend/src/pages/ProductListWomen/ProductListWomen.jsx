@@ -1,6 +1,7 @@
 import styles from './ProductListWomen.module.css';
 import { REACT_APP_API_URL } from '../../utils/apiConfig';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export const ProductListWomen = ({ products }) => {
   return (
@@ -10,6 +11,9 @@ export const ProductListWomen = ({ products }) => {
         <button className={styles.unstyle_button}>SORT</button>
       </div>
       <div className={styles.product_container}>
+        <Helmet>
+          <title>Shop womenswear</title>
+        </Helmet>
         {products.map((product) => (
           <div className={styles.product} key={product._id}>
             <Link to={`/product/${product._id}`}>

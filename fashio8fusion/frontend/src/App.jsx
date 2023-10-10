@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import Women from './pages/ProductListWomen/Women';
@@ -9,10 +8,11 @@ import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
 import { AuthProvider } from './hooks/AuthContext';
 // import { Women } from './pages/ProductPageWo/ProductPageWo';
-import { ProductPage } from "./pages/ProductPage/ProductPage";
-import AboutUs from "./pages/AboutUs/Aboutus";
-import ContactUs from "./pages/Contactus/ContactUS";
+import { ProductPage } from './pages/ProductPage/ProductPage';
+import AboutUs from './pages/AboutUs/Aboutus';
+import ContactUs from './pages/Contactus/ContactUS';
 import { ShoppingBag } from './pages/ShoppingBag/ShoppingBag';
+import CartScreen from './pages/ShoppingBag/CartScreen';
 
 const App = () => {
   return (
@@ -31,6 +31,7 @@ const App = () => {
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/product/:id" element={<ProductScreen />} />
               <Route path="/shoppingbag" element={<ShoppingBag />} />
+              <Route path="/cart" element={<CartScreen />} />
             </Routes>
           </div>
           <Footer />
