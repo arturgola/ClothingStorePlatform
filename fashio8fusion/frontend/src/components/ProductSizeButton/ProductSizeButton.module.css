@@ -1,15 +1,20 @@
 .size_button_container {
-    width: 55px;
-    height: 55px;
-    border-color: grey;
-    border-radius: 0%;
-    text-align: center;
-    font-family: Oswald;
-    font-size: 18px;
-    color: gray;
-    background-color: white;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
+  width: 55px;
+  height: 55px;
+  border-color: grey;
+  border-radius: 0%;
+  text-align: center;
+  font-family: Oswald;
+  font-size: 18px;
+  color: gray;
+  background-color: white;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
 
+.selected {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
 }

@@ -31,6 +31,7 @@ export default function CartScreen() {
                   height="80px"
                 />{' '}
                 <Link to={`/product/${item._id}`}>{item.name}</Link>{' '}
+                <span>Size: {item.size}</span>{' '}
                 <span>Quantity: {item.quantity}</span>{' '}
                 <span>Price: €{item.price}</span>
               </li>

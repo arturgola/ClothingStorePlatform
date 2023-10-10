@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useContext, useEffect, useReducer } from 'react';
+import { useContext, useEffect, useReducer, useState } from 'react';
 import styles from './ProductPage.module.css';
 import { ProductSizeButton } from '../../components/ProductSizeButton/ProductSizeButton';
 import { QuantityCounter } from '../../components/QuantityCounter/QuantityCounter';
@@ -34,6 +34,12 @@ const ProductScreen = () => {
   const params = useParams();
   const { id } = params;
 
+  const [selectedSize, setSelectedSize] = useState(null);
+
+  const handleSizeSelect = (size) => {
+    setSelectedSize(size);
+  };
+
   const [{ loading, error, product }, dispatch] = useReducer(
     reducer,
     initialState
@@ -53,22 +59,38 @@ const ProductScreen = () => {
     fetchProduct();
   }, [id]);
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const { state, dispatch: contextDispatch } = useContext(Store);
   const { cart } = state;
+
   const addToCartHandler = async () => {
-    const existItem = cart.cartItems.find((item) => item._id === product._id);
+    if (!selectedSize) {
+      setErrorMessage('Please select a size.');
+      return;
+    }
+
+    const existItem = cart.cartItems.find(
+      (item) => item._id === product._id && item.size === selectedSize
+    );
+
     const quantity = existItem ? existItem.quantity + 1 : 1;
+
     const res = await fetch(`${apiUrl}${id}`);
     const data = await res.json();
     //console.log(quantity);
-    if (data.countInStock < quantity) {
-      window.alert('Out of stock');
+    if (
+      quantity > data.sizes.find((size) => size.size === selectedSize).quantity
+    ) {
+      setErrorMessage('Out of stock for this size');
       return;
     }
     contextDispatch({
       type: 'CART_ADD_ITEM',
-      payload: { ...product, quantity },
+      payload: { ...product, size: selectedSize, quantity },
     });
+
+    setErrorMessage('');
   };
 
   return loading ? (
@@ -89,11 +111,20 @@ const ProductScreen = () => {
             <p className={styles.header_container}>{product.name}</p>
             <p className={styles.text_container}>SELECT SIZE (Centimeters)</p>
             <div className={styles.size_button_container_main}>
-              <ProductSizeButton>XS</ProductSizeButton>
+              {product.sizes.map((sizeItem) => (
+                <ProductSizeButton
+                  key={sizeItem.size}
+                  onSelect={handleSizeSelect}
+                  selected={sizeItem.size === selectedSize}
+                >
+                  {sizeItem.size}
+                </ProductSizeButton>
+              ))}
+              {/* <ProductSizeButton>XS</ProductSizeButton>
               <ProductSizeButton>S</ProductSizeButton>
               <ProductSizeButton>M</ProductSizeButton>
               <ProductSizeButton>L</ProductSizeButton>
-              <ProductSizeButton>XL</ProductSizeButton>
+              <ProductSizeButton>XL</ProductSizeButton> */}
             </div>
             <div className={styles.text_price_container}>
               <div>
@@ -106,12 +137,15 @@ const ProductScreen = () => {
                 <p>{product.description}</p>
               </div>
             </div>
-            <button
-              className={styles.add_bag_button}
-              onClick={addToCartHandler}
-            >
-              ADD TO BAG
-            </button>
+            <div>
+              <button
+                className={styles.add_bag_button}
+                onClick={addToCartHandler}
+              >
+                ADD TO BAG
+              </button>
+              {errorMessage && <div>{errorMessage}</div>}
+            </div>
             <div className={styles.description_text_container}>
               <p>FREE SHIPPING</p>
               <p>PRODUCT CODE: {product._id}</p>

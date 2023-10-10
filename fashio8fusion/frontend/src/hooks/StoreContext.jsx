@@ -13,11 +13,13 @@ const reducer = (state, action) => {
     case 'CART_ADD_ITEM':
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(
-        (item) => item._id === newItem._id
+        (item) => item._id === newItem._id && item.size === newItem.size
       );
       const cartItems = existItem
         ? state.cart.cartItems.map((item) =>
-            item._id === existItem._id ? newItem : item
+            item._id === existItem._id && item.size === existItem.size
+              ? newItem
+              : item
           )
         : [...state.cart.cartItems, newItem];
       return { ...state, cart: { ...state.cart, cartItems } };
