@@ -1,3 +1,33 @@
 .total_container {
     display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 30px;
+}
+
+.content_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #C4C4C4;
+    gap: 23px;
+    font-family: Oswald;
+    font-size: 18px;
+    background-color: #F0F2F2;
+}
+
+.price_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button_container {
+    border-radius: 0px;
+    background-color: green;
+    color: white;
+}
+
+.content_container * {
+    padding-left: 23px;
+    padding-right: 23px;
 }

@@ -21,9 +21,6 @@ export const Navbar = () => {
         <Link to="/men" className={styles.link}>
           Men
         </Link>
-        <Link to="/sale" className={styles.link}>
-          Sale
-        </Link>
         <SearchBar />
       </div>
       <div className={styles.menu} id={styles['user-panel']}>
@@ -32,13 +29,6 @@ export const Navbar = () => {
             src="/assets/question_logo.svg"
             alt="question"
             className={styles.question_logo}
-          />
-        </Link>
-        <Link to="favorites" className={styles.link}>
-          <img
-            src="/assets/liked_logo.svg"
-            alt="liked"
-            className={styles.liked_logo}
           />
         </Link>
         {/* <Link to="#" className={styles.link}>
@@ -51,7 +41,7 @@ export const Navbar = () => {
         <DropdownProfile />
 
         <Link to="/cart" className={styles.link}>
-          <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart} />
+          <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart_logo} />
         </Link>
         {/* <DropdownShoppingBag /> */}
         {cart.cartItems.length > 0 && (

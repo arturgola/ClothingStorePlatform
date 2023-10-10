@@ -11,8 +11,8 @@
   margin: unset;
   border: unset;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 28px;
+  height: 28px;
 }
 
 .profile_logo {
@@ -51,7 +51,7 @@
   gap: 14px;
 }
 
-.inputs_container > input {
+.inputs_container>input {
   background-color: #d77c78;
   height: 27px;
   font-size: 14px;
@@ -59,7 +59,7 @@
   color: #fff;
 }
 
-.inputs_container > input::placeholder {
+.inputs_container>input::placeholder {
   text-align: center;
 }
 
@@ -75,7 +75,7 @@
   margin-top: 14px;
 }
 
-.buttons_container > a {
+.buttons_container>a {
   flex-basis: 45%;
   border-radius: 20px;
   text-align: center;
@@ -91,4 +91,12 @@
   color: #361818;
   padding: unset;
   margin: unset;
+}
+
+.logout_btn {
+  padding: 0 17px;
+  height: 34px;
+  border-radius: 20px;
+  background: #a45151;
+  color: white;
 }
