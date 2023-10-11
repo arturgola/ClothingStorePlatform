@@ -20,10 +20,6 @@
   padding: 0;
 }
 
-#user-panel {
-  align-items: baseline;
-}
-
 .logo {
   padding-right: 9px;
   height: 42px;
@@ -46,14 +42,15 @@
 }
 
 .question_logo {
-  height: 28px;
-  width: 28px;
+  height: 100%;
+  width: 100%;
 }
 
 .link {
   color: white;
   font-size: larger;
   text-decoration: none;
+  height: 28px;
 }
 
 .link:hover {

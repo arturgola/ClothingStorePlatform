@@ -1,17 +1,17 @@
 const Product = require('../models/product-model');
 const mongoose = require('mongoose');
 
-
 // create a new product
 const createProduct = async (req, res, next) => {
   try {
-    const { name, category, image, price, countInStock, description } =
+    const { name, category, image, sizes, price, countInStock, description } =
       req.body;
 
     if (
       !name ||
       !category ||
       !image ||
+      !sizes ||
       !price ||
       !countInStock ||
       !description
@@ -25,6 +25,7 @@ const createProduct = async (req, res, next) => {
       name,
       category,
       image,
+      sizes,
       price,
       countInStock,
       description,
@@ -128,7 +129,7 @@ const deleteProduct = async (req, res, next) => {
 const patchProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, category, image, price, countInStock, description } =
+    const { name, category, image, sizes, price, countInStock, description } =
       req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -139,6 +140,7 @@ const patchProduct = async (req, res, next) => {
       !name &&
       !category &&
       !image &&
+      !sizes &&
       !price &&
       !countInStock &&
       !description
@@ -170,7 +172,7 @@ const patchProduct = async (req, res, next) => {
 const putProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, category, image, price, countInStock, description } =
+    const { name, category, image, sizes, price, countInStock, description } =
       req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -181,6 +183,7 @@ const putProduct = async (req, res, next) => {
       !name ||
       !category ||
       !image ||
+      !sizes ||
       !price ||
       !countInStock ||
       !description

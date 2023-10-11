@@ -1,0 +1,29 @@
+.main_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: Oswald;
+    list-style-type: none;
+}
+
+.button_container {
+    padding: 0 17px;
+    height: 34px;
+    border-radius: 20px;
+    background: #a45151;
+    color: white;
+    margin-top: 25px;
+}
+
+.text_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 60%;
+    list-style-type: none;
+    padding: 25px;
+    font-size: 25px;
+}

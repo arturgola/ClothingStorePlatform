@@ -29,7 +29,7 @@ export const DropdownShoppingBag = () => {
             <button className={styles.view_shopping_btn}>
               VIEW SHOPPING BAG
             </button>
-            <button className={styles.checkout_btn}>CHECKOUT</button>
+            <Link to="/shoppingbag" className={styles.checkout_btn}>CHECKOUT</Link>
           </div>
         </div>
       </div>

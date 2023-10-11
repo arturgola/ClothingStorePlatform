@@ -1,9 +1,13 @@
+import { Helmet } from 'react-helmet-async';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
 
 export const Home = () => {
   return (
     <div className={styles.home}>
+      <Helmet>
+        <title>Fashio8Fusion</title>
+      </Helmet>
       <div className={styles.promo_container1_wrapper}>
         <div className={styles.promo_container1_content}>
           <div className={styles.promo_container1_content_left}>

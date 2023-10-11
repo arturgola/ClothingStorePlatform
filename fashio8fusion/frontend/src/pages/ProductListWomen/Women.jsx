@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ProductListWomen } from './ProductListWomen';
+import LoadingBox from '../../components/LoadingBox/LoadingBox';
 
 import { REACT_APP_API_URL } from '../../utils/apiConfig';
 
@@ -33,10 +34,12 @@ const Women = () => {
     fetchProducts();
   }, []);
 
-  return (
+  return isPending ? (
+    <LoadingBox />
+  ) : error ? (
+    <div>{error}</div>
+  ) : (
     <div className="women">
-      {error && <div>{error}</div>}
-      {isPending && <div>Loading resources...</div>}
       {products && <ProductListWomen products={products} />}
     </div>
   );

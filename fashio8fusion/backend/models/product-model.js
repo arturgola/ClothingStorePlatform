@@ -15,6 +15,19 @@ const productSchema = new Schema(
       type: String,
       required: true,
     },
+    sizes: [
+      {
+        size: {
+          type: String,
+          enum: ['S', 'M', 'L'],
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
     price: {
       type: Number,
       required: true,
