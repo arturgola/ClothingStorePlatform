@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import Women from './pages/ProductListWomen/Women';
@@ -13,6 +14,9 @@ import AboutUs from './pages/AboutUs/Aboutus';
 import ContactUs from './pages/Contactus/ContactUS';
 import { ShoppingBag } from './pages/ShoppingBag/ShoppingBag';
 import CartScreen from './pages/ShoppingBag/CartScreen';
+import TermsAndConditions from "./pages/TermsAndCond/TermsAndCond";
+import FollowUs from "./pages/FollowUs/FollowUs";
+
 
 const App = () => {
   return (
@@ -30,8 +34,11 @@ const App = () => {
               <Route path="/Aboutus" element={<AboutUs />} />
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/product/:id" element={<ProductScreen />} />
+              <Route path="/FollowUs" element={<FollowUs />} />
+              <Route path="/TermsAndConditions" element={<TermsAndConditions />}/>
               <Route path="/shoppingbag" element={<ShoppingBag />} />
               <Route path="/cart" element={<CartScreen />} />
+
             </Routes>
           </div>
           <Footer />
