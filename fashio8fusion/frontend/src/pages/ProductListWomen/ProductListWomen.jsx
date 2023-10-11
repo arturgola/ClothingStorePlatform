@@ -31,7 +31,7 @@ export const ProductListWomen = ({ products }) => {
               <p>{product.name}</p>
             </Link>
             <p className={styles.product_price}>€{product.price}</p>
-            <button className={styles.product_button}>Add to cart</button>
+            {/* <button className={styles.product_button}>Add to cart</button> */}
           </div>
         ))}
       </div>

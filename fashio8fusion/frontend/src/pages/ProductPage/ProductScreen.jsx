@@ -127,10 +127,10 @@ const ProductScreen = () => {
               <ProductSizeButton>XL</ProductSizeButton> */}
             </div>
             <div className={styles.text_price_container}>
-              <div>
+              {/* <div>
                 <p className={styles.text_container}>QUANTITY</p>
                 <QuantityCounter />
-              </div>
+              </div> */}
               <div>
                 <p className={styles.text_container}>PRICE TOTAL</p>
                 <p className={styles.price_tag}>€{product.price}</p>
