@@ -1,0 +1,54 @@
+
+/* Container Styles */
+.follow-us-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 888px;
+    margin: 0 auto;
+  }
+  
+  /* Heading Styles */
+  .follow-us-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Subheading Styles */
+  .follow-us-container h3 {
+    font-size: 20px;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Paragraph Styles */
+  .follow-us-container p {
+    font-size: 18px;
+    color: #777;
+    line-height: 1.6;
+  }
+  
+  /* Bolden Content */
+  .follow-us-container strong {
+    font-weight: bold;
+  }
+  
+  /* Italics Content */
+  .follow-us-container em {
+    font-style: italic;
+  }
+  
+  /* Links Styles */
+  .follow-us-container a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .follow-us-container a:hover {
+    color: #0056b3;
+  }
+  

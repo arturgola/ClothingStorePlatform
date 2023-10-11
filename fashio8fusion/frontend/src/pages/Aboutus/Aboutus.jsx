@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import styles from "./Aboutus.module.css";
 
 function AboutUs() {
   // State to manage the visibility of additional text
@@ -10,14 +11,16 @@ function AboutUs() {
   };
 
   return (
-    <div>
+    <div className={styles["aboutus-page"]}>
       <h1>About Us</h1>
-      <p>Welcome to our hilarious journey!</p>
+      <h2>Welcome to our hilarious journey!</h2>
 
-      <button onClick={toggleText}>See more ! </button>
+      <button className={styles["button"]} onClick={toggleText}>
+        See more !{" "}
+      </button>
 
       {showText && (
-        <p>
+        <p className={styles["showText"]}>
           Once upon a time, in the hallowed halls of a web development
           classroom, we embarked on a journey that was supposed to be nothing
           more than a simple student project. Armed with caffeine and a

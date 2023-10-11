@@ -92,3 +92,16 @@
   padding: unset;
   margin: unset;
 }
+
+.logout_btn {
+  display: flex;
+  justify-items: start;
+  align-items: center;
+  padding: 0 17px;
+  width: 83px;
+  height: 44px;
+  border-radius: 20px;
+  background: #f6f8f5;
+  font-weight: 300;
+}
+

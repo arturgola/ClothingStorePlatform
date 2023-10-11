@@ -43,8 +43,12 @@ export const DropdownProfile = () => {
     if (user?.name) {
       return (
         <p>
-          Welcome {user.name} -{" "}
-          <button type="button" onClick={logoutUser}>
+          {/* Welcome {user.name} -{" "} */}
+          <button
+            className={styles["logout_btn"]}
+            type="button"
+            onClick={logoutUser}
+          >
             Logout
           </button>
         </p>
