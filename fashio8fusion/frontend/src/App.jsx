@@ -10,7 +10,7 @@ import Login from './pages/Login/Login';
 import { AuthProvider } from './hooks/AuthContext';
 // import { Women } from './pages/ProductPageWo/ProductPageWo';
 import { ProductPage } from './pages/ProductPage/ProductPage';
-import AboutUs from './pages/AboutUs/Aboutus';
+import { AboutUs } from './pages/AboutUs/AboutUs';
 import ContactUs from './pages/Contactus/ContactUS';
 import { ShoppingBag } from './pages/ShoppingBag/ShoppingBag';
 import CartScreen from './pages/ShoppingBag/CartScreen';
@@ -35,7 +35,7 @@ const App = () => {
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/product/:id" element={<ProductScreen />} />
               <Route path="/FollowUs" element={<FollowUs />} />
-              <Route path="/TermsAndConditions" element={<TermsAndConditions />}/>
+              <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
               <Route path="/shoppingbag" element={<ShoppingBag />} />
               <Route path="/cart" element={<CartScreen />} />
 
