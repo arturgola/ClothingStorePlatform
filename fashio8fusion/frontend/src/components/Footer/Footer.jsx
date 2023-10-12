@@ -8,10 +8,20 @@ export const Footer = () => {
       <ul className={styles.menu}>
         <img src="/assets/logo.svg" alt="logo" className={styles.logo} />
         <li>
-          <Link to="/Aboutus">ABOUT US</Link>
+          <Link to="/Aboutus" className={styles.link}>
+            ABOUT US
+          </Link>
         </li>
-        <li>TERMS & CONDITIONS</li>
-        <li>FOLLOW US</li>
+        <li>
+          <Link to="/Followus" className={styles.link}>
+            FOLLOW US{" "}
+          </Link>
+        </li>
+        <li>
+          <Link to="/TermsAndConditions" className={styles.link}>
+            Terms & Conditions
+          </Link>
+        </li>
       </ul>
       <p style={{ fontSize: "10px" }}>© GROUP8, 2023.</p>
     </div>

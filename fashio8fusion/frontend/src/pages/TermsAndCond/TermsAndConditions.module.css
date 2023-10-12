@@ -1,0 +1,36 @@
+/* Add this CSS to your CSS module file or a separate CSS file */
+
+/* Container Styles */
+.terms-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+  
+  /* Heading Styles */
+  .terms-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Paragraph Styles */
+  .terms-container p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Bolden Content */
+  .terms-container strong {
+    font-weight: bold;
+  }
+  
+  /* Italics Content */
+  .terms-container em {
+    font-style: italic;
+  }
+  

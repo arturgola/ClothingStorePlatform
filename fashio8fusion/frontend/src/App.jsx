@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
-import Products from './pages/ProductListWomen/Products';
+import Products from './pages/ProductList/Products';
 import ProductScreen from './pages/ProductPage/ProductScreen';
 import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
@@ -9,11 +9,13 @@ import Login from './pages/Login/Login';
 import { AuthProvider } from './hooks/AuthContext';
 // import { Women } from './pages/ProductPageWo/ProductPageWo';
 import { ProductPage } from './pages/ProductPage/ProductPage';
-import AboutUs from './pages/AboutUs/Aboutus';
+import { AboutUs } from './pages/AboutUs/AboutUs';
 import ContactUs from './pages/Contactus/ContactUS';
 import { ShoppingBag } from './pages/ShoppingBag/ShoppingBag';
 import CartScreen from './pages/ShoppingBag/CartScreen';
 import SearchResults from './pages/SearchResults/SearchResults';
+import TermsAndConditions from './pages/TermsAndCond/TermsAndCond';
+import FollowUs from './pages/FollowUs/FollowUs';
 
 const App = () => {
   return (
@@ -33,6 +35,11 @@ const App = () => {
               <Route path="/Aboutus" element={<AboutUs />} />
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/product/:id" element={<ProductScreen />} />
+              <Route path="/FollowUs" element={<FollowUs />} />
+              <Route
+                path="/TermsAndConditions"
+                element={<TermsAndConditions />}
+              />
               <Route path="/shoppingbag" element={<ShoppingBag />} />
               <Route path="/cart" element={<CartScreen />} />
             </Routes>

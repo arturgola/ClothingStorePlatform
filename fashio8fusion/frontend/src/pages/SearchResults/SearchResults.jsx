@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ProductList } from '../ProductListWomen/ProductList';
+import { ProductList } from '../ProductList/ProductList';
 import { useLocation } from 'react-router-dom';
 import { REACT_APP_API_URL } from '../../utils/apiConfig';
 import LoadingBox from '../../components/LoadingBox/LoadingBox';

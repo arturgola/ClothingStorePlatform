@@ -94,9 +94,18 @@
 }
 
 .logout_btn {
+
+  display: flex;
+  justify-items: start;
+  align-items: center;
   padding: 0 17px;
-  height: 34px;
+  width: 83px;
+  height: 44px;
   border-radius: 20px;
-  background: #a45151;
-  color: white;
+  background: #f6f8f5;
+  font-weight: 300;
 }
+
+
+
+
