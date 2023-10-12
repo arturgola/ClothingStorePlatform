@@ -221,6 +221,7 @@ const searchProducts = async (req, res, next) => {
             path: {
               wildcard: '*',
             },
+            fuzzy: {},
           },
         },
       },
