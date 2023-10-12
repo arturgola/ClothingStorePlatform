@@ -39,9 +39,13 @@ export function StoreProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
+    const savedCart = sessionStorage.getItem('cart');
+    const savedCartArray = JSON.parse(savedCart);
     if (savedCart) {
-      dispatch({ type: 'CART_ADD_ITEM', payload: JSON.parse(savedCart) });
+      //dispatch({ type: 'CART_ADD_ITEM', payload: JSON.parse(savedCart) });
+      savedCartArray.map((item) => {
+        dispatch({ type: 'CART_ADD_ITEM', payload: item });
+      });
     }
   }, []);
 
