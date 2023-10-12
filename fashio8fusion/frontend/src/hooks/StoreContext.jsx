@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 
 export const Store = createContext();
 
@@ -23,7 +23,13 @@ const reducer = (state, action) => {
           )
         : [...state.cart.cartItems, newItem];
       return { ...state, cart: { ...state.cart, cartItems } };
-
+    case 'CART_REMOVE_ITEM':
+      const itemToRemove = action.payload;
+      const updatedCartItems = state.cart.cartItems.filter(
+        (item) =>
+          item._id !== itemToRemove._id || item.size !== itemToRemove.size
+      );
+      return { ...state, cart: { ...state.cart, cartItems: updatedCartItems } };
     default:
       return state;
   }
@@ -31,6 +37,18 @@ const reducer = (state, action) => {
 
 export function StoreProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      dispatch({ type: 'CART_ADD_ITEM', payload: JSON.parse(savedCart) });
+    }
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem('cart', JSON.stringify(state.cart.cartItems));
+  }, [state.cart.cartItems]);
+
   const value = { state, dispatch };
   return <Store.Provider value={value}>{props.children}</Store.Provider>;
 }

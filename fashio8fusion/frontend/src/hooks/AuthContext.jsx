@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { login } from "../services/authService";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { login } from '../services/authService';
 // Create the AuthContext
 const AuthContext = createContext();
 
@@ -13,22 +13,22 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("user")));
+    setUser(JSON.parse(sessionStorage.getItem('user')));
   }, []);
 
   // Function to log in the user
   const loginUser = async (email, password) => {
     try {
       const data = await login(email, password);
-      console.log("in auth context", data);
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+      console.log('in auth context', data);
+      sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('user', JSON.stringify(data.user));
       window.location.reload();
-      window.location.href = "/login";
+      window.location.href = '/login';
 
       setUser(data); // Assuming the response contains token, email, and name
     } catch (error) {
-      console.error("Login error:", error);
+      console.error('Login error:', error);
       throw error;
     }
   };
@@ -36,8 +36,8 @@ export const AuthProvider = ({ children }) => {
   // Function to log out the user (you can implement this)
   const logoutUser = () => {
     // Implement your logout logic here
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
     window.location.reload();
   };
 
