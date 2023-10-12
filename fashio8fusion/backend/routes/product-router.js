@@ -8,6 +8,7 @@ const {
   putProduct,
   patchProduct,
   getProduct,
+  searchProducts,
 } = require('../controllers/product-controller');
 
 const router = express.Router();
@@ -35,5 +36,8 @@ router.patch('/product/:id', patchProduct);
 
 // Update product using PUT
 router.put('/product/:id', putProduct);
+
+// Search product name
+router.get('/search', searchProducts);
 
 module.exports = router;

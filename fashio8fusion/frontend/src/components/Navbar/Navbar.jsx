@@ -41,12 +41,18 @@ export const Navbar = () => {
         <DropdownProfile />
 
         <Link to="/cart" className={styles.link}>
-          <img src="/assets/cart_logo.svg" alt="cart" className={styles.cart_logo} />
+          <img
+            src="/assets/cart_logo.svg"
+            alt="cart"
+            className={styles.cart_logo}
+          />
+          {cart.cartItems.length > 0 && (
+            <div className={styles.cart_quantity}>
+              {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+            </div>
+          )}
         </Link>
         {/* <DropdownShoppingBag /> */}
-        {cart.cartItems.length > 0 && (
-          <div>{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</div>
-        )}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
-import Women from './pages/ProductListWomen/Women';
+import Products from './pages/ProductListWomen/Products';
 import ProductScreen from './pages/ProductPage/ProductScreen';
 import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
@@ -13,6 +13,7 @@ import AboutUs from './pages/AboutUs/Aboutus';
 import ContactUs from './pages/Contactus/ContactUS';
 import { ShoppingBag } from './pages/ShoppingBag/ShoppingBag';
 import CartScreen from './pages/ShoppingBag/CartScreen';
+import SearchResults from './pages/SearchResults/SearchResults';
 
 const App = () => {
   return (
@@ -23,7 +24,9 @@ const App = () => {
           <div className="content">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/women" element={<Women />} />
+              <Route path="/women" element={<Products />} />
+              <Route path="/men" element={<Products />} />
+              <Route path="/search" element={<SearchResults />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
               <Route path="/productpage" element={<ProductPage />} />

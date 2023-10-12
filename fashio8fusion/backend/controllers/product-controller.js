@@ -208,6 +208,31 @@ const putProduct = async (req, res, next) => {
   }
 };
 
+const searchProducts = async (req, res, next) => {
+  try {
+    const searchQuery = req.query.query;
+
+    const pipeline = [
+      {
+        $search: {
+          index: 'default',
+          text: {
+            query: searchQuery,
+            path: {
+              wildcard: '*',
+            },
+          },
+        },
+      },
+    ];
+
+    const results = await Product.aggregate(pipeline);
+    res.status(200).json(results);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getLatest,
   getWomens,
@@ -217,4 +242,5 @@ module.exports = {
   deleteProduct,
   putProduct,
   patchProduct,
+  searchProducts,
 };

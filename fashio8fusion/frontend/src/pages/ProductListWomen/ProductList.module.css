@@ -1,0 +1,92 @@
+.main_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.filter_container {
+  display: flex;
+  height: 40px;
+  color: black;
+  font-family: Roboto;
+  font-size: 14px;
+  gap: 25px;
+  padding-left: 23px;
+}
+
+.unstyle_button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+/* .product_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    width: 100%;
+    max-width: 1650px;
+    margin: 0 auto;
+    justify-content: center;
+} */
+.product_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns per row */
+  gap: 28px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: flex-start; /* Cards go from left to right */
+}
+
+/* .product_picture {
+    height: 480px;
+} */
+.product_picture {
+  max-width: 100%;
+  height: auto; /* Maintain the aspect ratio of the image */
+}
+
+/* .product {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 125px;
+    justify-content: center;
+    align-items: center;
+} */
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center align card content */
+  background-color: white; /* Add a background color to the card */
+  padding: 20px; /* Add some spacing inside the card */
+  border: 1px solid #e5e5e5; /* Add a border to separate cards */
+}
+
+.product_header_category {
+  font-size: 12px;
+  color: gray;
+  font-family: Oswald;
+  margin-top: 15px;
+}
+
+.product_header {
+  color: black;
+  font-family: Oswald;
+  font-size: 18px;
+}
+
+.product_price {
+  color: black;
+  font-family: Oswald;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.sort_selector {
+  margin: 0 0 10px 0px;
+  height: 26px;
+}
