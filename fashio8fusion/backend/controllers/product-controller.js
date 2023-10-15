@@ -4,21 +4,12 @@ const mongoose = require('mongoose');
 // create a new product
 const createProduct = async (req, res, next) => {
   try {
-    const { name, category, image, sizes, price, countInStock, description } =
-      req.body;
+    const { name, category, image, sizes, price, description } = req.body;
 
-    if (
-      !name ||
-      !category ||
-      !image ||
-      !sizes ||
-      !price ||
-      !countInStock ||
-      !description
-    ) {
-      return res
-        .status(400)
-        .json({ error: 'Please provide information for all fields' });
+    if (!name || !category || !image || !sizes || !price || !description) {
+      const error = new Error('Please provide information for all fields');
+      error.statusCode = 400;
+      throw error;
     }
 
     const product = await Product.create({
@@ -27,31 +18,11 @@ const createProduct = async (req, res, next) => {
       image,
       sizes,
       price,
-      countInStock,
+
       description,
     });
 
     res.status(201).json(product);
-  } catch (error) {
-    next(error);
-  }
-};
-
-// get lastest product
-const getLatest = async (req, res, next) => {
-  try {
-    const latestWomen = await Product.findOne(
-      { category: 'women' },
-      {},
-      { sort: { _id: -1 } }
-    );
-    const latestMen = await Product.findOne(
-      { category: 'men' },
-      {},
-      { sort: { _id: -1 } }
-    );
-
-    res.status(200).json([latestWomen, latestMen]);
   } catch (error) {
     next(error);
   }
@@ -89,13 +60,17 @@ const getProduct = async (req, res, next) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: 'No product with specified ID' });
+      const error = new Error('No product with specified ID');
+      error.statusCode = 404;
+      throw error;
     }
 
     const product = await Product.findById(id);
 
     if (!product) {
-      return res.status(404).json({ error: 'No product with specified ID' });
+      const error = new Error('No product with specified ID');
+      error.statusCode = 404;
+      throw error;
     }
 
     res.status(200).json(product);
@@ -110,16 +85,20 @@ const deleteProduct = async (req, res, next) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: 'No product with specified ID' });
+      const error = new Error('No product with specified ID');
+      error.statusCode = 404;
+      throw error;
     }
 
     const deletedProduct = await Product.findByIdAndDelete(id);
 
     if (!deletedProduct) {
-      return res.status(404).json({ error: 'No product with specified ID' });
+      const error = new Error('No product with specified ID');
+      error.statusCode = 404;
+      throw error;
     }
 
-    res.status(200).json(deletedProduct);
+    res.status(204).json(deletedProduct);
   } catch (error) {
     next(error);
   }
@@ -129,25 +108,20 @@ const deleteProduct = async (req, res, next) => {
 const patchProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, category, image, sizes, price, countInStock, description } =
-      req.body;
+    const { name, category, image, sizes, price, description } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: 'No product with specified ID' });
+      const error = new Error('No product with specified ID');
+      error.statusCode = 404;
+      throw error;
     }
 
-    if (
-      !name &&
-      !category &&
-      !image &&
-      !sizes &&
-      !price &&
-      !countInStock &&
-      !description
-    ) {
-      return res
-        .status(400)
-        .json({ error: 'Please provide information for at least one field' });
+    if (!name && !category && !image && !sizes && !price && !description) {
+      const error = new Error(
+        'Please provide information for at least one field'
+      );
+      error.statusCode = 404;
+      throw error;
     }
 
     const patchedProduct = await Product.findByIdAndUpdate(
@@ -159,7 +133,9 @@ const patchProduct = async (req, res, next) => {
     );
 
     if (!patchedProduct) {
-      return res.status(404).json({ error: 'No product with specified ID' });
+      const error = new Error('No product with specified ID');
+      error.statusCode = 404;
+      throw error;
     }
 
     res.json(patchedProduct);
@@ -172,25 +148,18 @@ const patchProduct = async (req, res, next) => {
 const putProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, category, image, sizes, price, countInStock, description } =
-      req.body;
+    const { name, category, image, sizes, price, description } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: 'No product with specified ID' });
+      const error = new Error('No product with specified ID');
+      error.statusCode = 404;
+      throw error;
     }
 
-    if (
-      !name ||
-      !category ||
-      !image ||
-      !sizes ||
-      !price ||
-      !countInStock ||
-      !description
-    ) {
-      return res
-        .status(400)
-        .json({ error: 'Please provide information for all fields' });
+    if (!name || !category || !image || !sizes || !price || !description) {
+      const error = new Error('Please provide information for all fields');
+      error.statusCode = 404;
+      throw error;
     }
 
     const replacedProduct = await Product.findByIdAndUpdate(id, req.body, {
@@ -199,7 +168,9 @@ const putProduct = async (req, res, next) => {
     });
 
     if (!replacedProduct) {
-      return res.status(404).json({ error: 'No product with specified ID' });
+      const error = new Error('No product with specified ID');
+      error.statusCode = 404;
+      throw error;
     }
 
     res.status(200).json(replacedProduct);
@@ -235,7 +206,6 @@ const searchProducts = async (req, res, next) => {
 };
 
 module.exports = {
-  getLatest,
   getWomens,
   getMens,
   getProduct,

@@ -6,14 +6,23 @@ const reqLogger = (req, res, next) => {
   next();
 };
 
-const unknownEndpoint = (req, res) => {
-  res.status(404).send({ error: 'unknown endpoint' });
+const unknownEndpoint = (req, res, next) => {
+  const error = new Error('Unknown endpoint');
+  error.statusCode = 404;
+  throw error;
 };
 
 const errorHandler = (err, req, res, next) => {
+  const errStatus = err.statusCode || 500;
+  const errMsg = err.message || 'Internal server error';
+
   console.error(err.stack);
 
-  res.status(500).json({ error: `Internal server error: ${err.message}` });
+  res.status(errStatus).json({
+    status: errStatus,
+    error: errMsg,
+    stack: process.env.NODE_ENV === 'development' ? err.stack : {},
+  });
 };
 
 module.exports = {

@@ -1,10 +1,12 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const connectDB = require("./config/db");
-const mainRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/product-router");
-const customMiddleware = require("./middleware/customMiddleware");
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./config/db');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swaggerConfig.js');
+const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/product-router');
+const customMiddleware = require('./middleware/customMiddleware');
 
 const port = process.env.PORT || 5001;
 
@@ -17,11 +19,13 @@ app.use(express.json());
 
 app.use(customMiddleware.reqLogger);
 
-app.use("/", mainRoutes);
-app.use("/api", productRoutes);
+app.use('/api', productRoutes);
 
-app.use("/images", express.static("images"));
-app.use("/api/users", require("./routes/userRoutes"));
+app.use('/images', express.static('images'));
+
+app.use('/api/users', userRoutes);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(customMiddleware.unknownEndpoint);
 

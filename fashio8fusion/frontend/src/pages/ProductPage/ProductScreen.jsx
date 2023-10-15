@@ -109,7 +109,7 @@ const ProductScreen = () => {
         <div>
           <div className={styles.product_description_container}>
             <p className={styles.header_container}>{product.name}</p>
-            <p className={styles.text_container}>SELECT SIZE (Centimeters)</p>
+            <p className={styles.text_container}>SELECT SIZE</p>
             <div className={styles.size_button_container_main}>
               {product.sizes.map((sizeItem) => (
                 <ProductSizeButton
@@ -132,9 +132,9 @@ const ProductScreen = () => {
                 <QuantityCounter />
               </div> */}
               <div>
-                <p className={styles.text_container}>PRICE TOTAL</p>
+                <p className={styles.text_container}>PRICE</p>
                 <p className={styles.price_tag}>€{product.price}</p>
-                <p>{product.description}</p>
+                <p className={styles.description}>{product.description}</p>
               </div>
             </div>
             <div>
