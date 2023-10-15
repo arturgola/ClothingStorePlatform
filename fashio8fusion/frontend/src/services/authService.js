@@ -1,6 +1,7 @@
 // src/services/authService.js
 
-const API_URL = "http://localhost:5001";
+// const API_URL = "http://localhost:5001";
+const API_URL = "https://fashio8fusion-p9p9.onrender.com";
 
 export const register = async (name, email, password) => {
   try {
